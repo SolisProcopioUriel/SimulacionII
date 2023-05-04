@@ -1,0 +1,405 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish,mexico]{babel}
+\usepackage[margin=1.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\usepackage{booktabs}
+\pagestyle{empty}
+\usepackage{amsmath, amsthm, amssymb}
+\usepackage{tikz}
+\usepackage{longtable}
+\usepackage{tikz}
+\usepackage{multicol}
+
+
+
+\date{\today}
+
+\begin{document}
+
+\thispagestyle{empty}
+	
+	\includegraphics[width=0.20\textwidth]{Logo IPN.png}
+	\includegraphics[width=0.10\textwidth, right=12cm]{ESFM.png}
+	
+\begin{center}
+        	
+\LARGE
+	Formulario  Simulación II
+	
+        	
+\vspace{0.5cm}
+\normalsize	
+Solis Procopio Uriel 
+
+\vspace{0.5cm}
+\end{center}
+
+\setcounter{page}{1}
+\pagestyle{plain}
+
+    
+    \section{Funciones Continuas}   
+
+        \subsection{Uniforme}
+
+            Si $X$ es una variable aleatoria continua con distribución uniforme continua entonces escribimos $X \thicksim U(a,b)$
+
+            \subsubsection{Función de densidad}
+
+                Si $X\thicksim U(a,b)$ entonces la función de densidad es
+
+                    \begin{equation*}
+                        f_X (x) = \frac{1}{b-a}
+                    \end{equation*}
+
+                Para $x\in [a,b]$
+
+            \subsubsection{Función de distribución}
+
+                Si $X\thicksim U(a,b)$ entonces la función de distribución es
+
+                    \begin{equation*}
+                        F_X (x)= \left\{ \begin{array}{lcc}
+                                 0 &   si  & x < a \\
+                                 \\ \frac{x-a}{b-a} &  si & a \leq  x < b \\
+                                 \\ 1 &  si  & x \geq b
+                                 \end{array}
+                                \right.
+                    \end{equation*}
+                    
+            \subsubsection{Media}
+
+                \begin{equation*}
+                    E[X] = \frac{a+b}{2}
+                \end{equation*}
+                
+            \subsubsection{Varianza}
+
+                \begin{equation*}
+                    \sigma ^2 = \frac{(b-a)^2}{12}
+                \end{equation*}
+
+        \subsection{Exponencial}
+
+            \subsubsection{Función de densidad}
+
+                Se dice que una variable aleatoria continua $X$ tiene una distribución exponencial con parámetros $\lambda > 0 $ y escribimos $X\thicksim Exp(\lambda)$ con función de densidad
+
+                    \begin{equation*}
+                        f_X (x) = \lambda e^{-\lambda x}
+                    \end{equation*}
+
+                Para $x>0$
+
+            \subsubsection{Función de distribución}
+
+                La función de distribución esta dada por
+
+                    \begin{equation*}
+                        F_X (x) =1-e^{-\lambda x}
+                    \end{equation*}
+
+                Para $x\geq 0$ 
+
+            \subsubsection{Media}
+
+                \begin{equation*}
+                    E[X] = \frac{1}{\lambda}
+                \end{equation*}
+                
+            \subsubsection{Varianza}
+
+                \begin{equation*}
+                    \sigma ^2 = \frac{1}{\lambda ^2}
+                \end{equation*}
+            
+
+        \subsection{Weibull}
+
+            \subsubsection{Función de densidad}
+
+                Si $X$ es una variable aleatoria continua, se dice que $X$ tiene una distribución Weibull con parámetros $\alpha, \lambda >0$ y escribimos $X\thicksim Weibull(\alpha, \lambda)$ y su función de densidad y su función esta dada por
+
+                    \begin{equation*}
+                        f(x)= \lambda \alpha (\lambda x)^{\alpha -1} e^{-(\lambda x)^\alpha}
+                    \end{equation*}
+
+            \subsubsection{Función de distribución}
+
+                La función de distribución esta dada por
+
+                    \begin{equation*}
+                        F(x) = 1-e^{-(\lambda x)^{\alpha}}
+                    \end{equation*}
+
+                Para $x>0$
+
+            \subsubsection{Media}
+
+                \begin{equation*}
+                    E[X] = \frac{1}{\lambda} \Gamma \left( 1+\frac{1}{\alpha} \right)
+                \end{equation*}
+                
+            \subsubsection{Varianza}
+
+                \begin{equation*}
+                    \sigma ^2 = \frac{1}{\lambda ^2} \left[ \Gamma \left( 1+\frac{2}{\alpha} \right) -\Gamma ^2 \left( 1+\frac{1}{\alpha} \right) \right]
+                \end{equation*}
+
+                
+        \subsection{Log-Normal}
+
+            \subsubsection{Función de densidad}
+
+                Una variable aleatoria positiva $X$ tiene una distribución lognormal con parámetros $\mu$  y $\sigma$ y escribimos $X\thicksim Lognormal (\mu, \sigma ^2)$, si el logaritmo natural de $X$ sigue una distribución normal con media $\mu$  y varianza $ \sigma ^2$ esto es  $X\thicksim N (\mu, \sigma ^2)$ para obtener
+
+                    \begin{equation*}
+                        f_X (x) = \frac{1}{\sigma x\sqrt{2\pi}e^{-\frac{(\ln x-\mu)^2}{2\sigma ^2}}}
+                    \end{equation*}
+
+            \subsubsection{Función de distribución}
+
+                La función de distribución esta dada por
+
+                    \begin{equation*}
+                        F_X(x) = \Phi \left( \frac{\ln x -\mu}{\sigma} \right)
+                    \end{equation*}
+
+                Donde $\Phi$ es la función de distribución acumulada de una normal estándar $N(0,1)$
+
+            \subsubsection{Media}
+
+                \begin{equation*}
+                    E[X] = e^{\mu + \frac{\sigma ^2}{2}}
+                \end{equation*}
+                
+            \subsubsection{Varianza}
+
+                \begin{equation*}
+                    \sigma ^2 = \left( e^{\sigma ^2} -1\right) e^{2\mu +\sigma ^2}
+                \end{equation*}
+
+        \subsection{Normal}
+
+            \subsubsection{Función de densidad}
+
+                Denotaremos a una distribución normal como sigue $X\thicksim N (\mu, \sigma ^2)$ entonces su función de densidad esta dada por
+    
+                    \begin{equation*}
+                        \varphi_{\mu, \sigma ^2} (x) = \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{(x-\mu)^2}{2\sigma ^2}}, ~~x \in \mathbb{R}
+                    \end{equation*}
+
+            \subsubsection{Función de distribución}
+
+                La función de distribución esta dada por
+
+                    \begin{equation*}
+                        \Phi _{\mu,\sigma ^2}(x) = \frac{1}{2} \left[ 1+ erf\left( \frac{x-\mu}{\sigma \sqrt{2}} \right) \right], ~~x\in \mathbb{R}
+                    \end{equation*}
+
+                Donde {\bf erf = función error de Gauss} que la podemos expresar como
+
+                    \begin{equation*}
+                        erf(z) = \frac{2}{\sqrt{\pi}} \int _0^z e^{-t^2} dt
+                    \end{equation*}
+
+            \subsubsection{Media}
+
+                \begin{equation*}
+                    E[X] = \mu
+                \end{equation*}
+                
+            \subsubsection{Varianza}
+
+                \begin{equation*}
+                    \sigma ^2 
+                \end{equation*}
+
+    \section{Funciones discretas}
+
+        \subsection{Bernoulli}
+            
+            Si $X$ es una variable aleatoria discreta que mide el número de éxitos y se realiza un único experimento con dos posibles resultados denotamos éxito y fracaso, se dice que la variable aleatoria $X$ se distribuye como una Bernoulli de parámetros $p$ con $0<p<1$ y escribimos   $X\thicksim Bernoulli (p)$
+            
+            \subsubsection{Función de Probabilidad} 
+
+                Su función de probabilidad es
+
+                    \begin{equation*}
+                        P[X=x] = p^x(1-p)^{1-x} ,~~x=0,1
+                    \end{equation*}
+
+            \subsubsection{Función de distribución}
+
+                La función de distribución acumulada de una variable aleatoria Bernoulli esta dado por
+
+                    \begin{equation*}
+                                    F(x)= \left\{ \begin{array}{lcc}
+                                     0 &   si  & x < 2 \\
+                                     \\ 1-p &  si & 0 \leq  x < 1 \\
+                                     \\ 1 &  si  & x \geq 1
+                                     \end{array}
+                           \right.
+                    \end{equation*}
+
+            \subsubsection{Media}
+
+                \begin{equation*}
+                    E[X] = p
+                \end{equation*}
+                
+            \subsubsection{Varianza}
+
+                \begin{equation*}
+                    \sigma ^2 = p(1-p)
+                \end{equation*}
+                
+                
+        \subsection{Uniforme discreta}
+
+                Si $X$ es una variable aleatoria discreta cuyo soporte es el conjunto $\{ x_1,x_2,\ldots , x_n \}$ y tiene una distribución uniforme discreta entonces lo escribiremos como $X\thicksim Uniforme (x_1,x_2,\ldots , x_n)$
+                
+            \subsubsection{Función de Probabilidad}
+
+                La función de probabilidad es
+
+                    \begin{equation*}
+                        P[X=x] = \frac{1}{n}
+                    \end{equation*}
+
+                Para $x=x_1,x_2,\ldots , x_n$ 
+
+            \subsubsection{Media}
+
+                \begin{equation*}
+                    E[X] = \frac{1}{n} \sum _{i=1}^n x_i
+                \end{equation*}
+                
+            \subsubsection{Varianza}
+
+                \begin{equation*}
+                    \sigma ^2 = \frac{1}{n} \sum_{i=1}^n (x_i-E[X])^2
+                \end{equation*}
+            
+        \subsection{Binomial}
+
+            Si una variable aleatoria discreta $X$ tiene una distribución binomial con parámetros $n\in \mathbb{N}$ y $p$ con $0<p<1$ entonces escribiremos $X\thicksim Bin (n,p)$
+
+                \subsubsection{Función de Probabilidad}
+
+                    Su función de probabilidad esta dada por
+
+
+                        \begin{equation*}
+                            P[X=x]= \binom{n}{x} p^x (1-p)^{n-x}
+                        \end{equation*}
+
+                    Para $x=0,1,2,\ldots , n$, donde 
+
+                        \begin{equation*}
+                            \binom{n}{x} = \frac{n!}{x!(n-x)!}
+                        \end{equation*}
+                        
+                \subsubsection{Función de distribución }
+
+                        \begin{equation*}
+                            F_X(x) = P[X\leq x]= \sum _{k=0}^x \binom{n}{k} p^k(1-p)^{n-k}     
+                        \end{equation*}
+
+                \subsubsection{Media}
+
+                \begin{equation*}
+                    E[X] = np
+                \end{equation*}
+                
+                \subsubsection{Varianza}
+
+                \begin{equation*}
+                    \sigma ^2 = np(1-p)
+                \end{equation*}
+                        
+        \subsection{Geométrica}
+
+            Si una variable aleatoria discreta $X$ sigue una distribución geométrica con parámetros $0<p<1$ entonces escribiremos $X\thicksim Geometrica (p)$ 
+
+                 \subsubsection{Función de Probabilidad}
+
+                    La función de probabilidad podemos verla como
+
+                        \begin{equation*}
+                            P[X=x]=p(1-p)^{x-1}
+                        \end{equation*}
+
+                    Para $x=1,2,3,\ldots$
+
+                \subsubsection{Función de distribución }
+
+                    La función de distribución esta dada por
+
+                        \begin{equation*}
+                            P[X\leq x]  = 1-(1-p)^x
+                        \end{equation*}
+
+                    Para $x=0,1,2,3,\ldots $
+
+                \subsubsection{Media}
+
+                            \begin{equation*}
+                                E[X] = \frac{1}{p}
+                            \end{equation*}
+                
+                \subsubsection{Varianza}
+
+                    \begin{equation*}
+                        \sigma ^2 = \frac{1-p}{p^2}
+                    \end{equation*}
+                    
+        \subsection{Poisson}
+
+            Sea $\lambda > 0$ y $X$ una variable aleatoria discreta, si la variable aleatoria $X$ tiene una distribución de Poisson con parámetros $\lambda$ entonces escribiremos $X\thicksim Poisson (\lambda)$ 
+
+                \subsubsection{Función de Probabilidad}
+
+                    La función de probabilidad esta dada por
+
+                        \begin{equation*}
+                            P[X=x]=\frac{e^{-\lambda}\lambda ^k}{k!}
+                        \end{equation*}
+
+                    Donde $k=0,1,2,3,\ldots$
+
+                \subsubsection{Función de distribución }
+
+                    La función de distribución queda de la siguiente manera
+
+                        \begin{equation*}
+                            \frac{\Gamma (\lfloor k+1 \rfloor ,\lambda )}{ \lfloor k \rfloor!}
+                        \end{equation*}
+
+                    Para $k \geq 0$ donde $\Gamma (x,y)$ es una función gamma incompleta, es decir
+
+                        \begin{equation*}
+                            \Gamma (a,x) = \int _x^{\infty} t^{a-1}e^{-t} dt
+                        \end{equation*}
+
+                \subsubsection{Media}
+
+                            \begin{equation*}
+                                E[X] = \lambda
+                            \end{equation*}
+                
+                \subsubsection{Varianza}
+
+                    \begin{equation*}
+                        \sigma ^2 = \lambda
+                    \end{equation*}
+                
+
+\end{document}
